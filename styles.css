@@ -1,0 +1,43 @@
+styles.css
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f3e9;
+    font-family: 'Comic Sans MS', sans-serif;
+}
+.card {
+    text-align: center;
+    background-color: #fff;
+    border: 2px solid #dcdcdc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.cake {
+    margin: 20px 0;
+    position: relative;
+    display: inline-block;
+}
+.candle {
+    width: 20px;
+    height: 60px;
+    background-color: #e0c4ff;
+    margin: 0 auto;
+    position: relative;
+}
+.flame {
+    width: 10px;
+    height: 20px;
+    background-color: orange;
+    border-radius: 50% 50% 0 0;
+    position: absolute;
+    top: -20px;
+    left: 5px;
+    animation: flicker 0.2s infinite;
+}
+@keyframes flicker {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
