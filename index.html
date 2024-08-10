@@ -10,13 +10,31 @@ index.html
 <body>
     <div class="card">
         <h1>Happy Birthday <span id="name">XXX</span>!</h1>
-        <div class="cake">
-            <div class="candle">
-                <div id="flame" class="flame"></div>
-            </div>
+
+        <div class="input-section">
+            <input type="text" id="nameInput" placeholder="Enter your name">
+            <button id="updateName">Update Name</button>
         </div>
+
+        <div class="cake">
+            <div class="cake-layer cake-bottom"></div>
+            <div class="cake-layer cake-middle"></div>
+            <div class="cake-layer cake-top">
+                <div class="cherry"></div>
+                <div class="cherry"></div>
+                <div class="cherry"></div>
+            </div>
+            <div class="piping"></div>
+        </div>
+        
+        <div class="candle">
+            <div id="flame" class="flame"></div>
+        </div>
+
         <p>Blow out the candle!</p>
     </div>
+
     <script src="script.js"></script> <!-- Link to JavaScript file -->
 </body>
 </html>
+ 
