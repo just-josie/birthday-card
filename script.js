@@ -1,12 +1,18 @@
 script.js
-// Get the name from the URL parameters (e.g., ?name=John)
+ // Get the name from the URL parameters (e.g., ?name=Josie)
 const urlParams = new URLSearchParams(window.location.search);
-const name = urlParams.get('name');
-if (name) {
-    document.getElementById('name').textContent = name;
-}
+let name = urlParams.get('name') || "XXX";
+document.getElementById('name').textContent = name;
 
-// Audio processing to detect blowing
+// Update name when user types it in
+document.getElementById('updateName').addEventListener('click', function() {
+    const newName = document.getElementById('nameInput').value;
+    if (newName) {
+        document.getElementById('name').textContent = newName;
+    }
+});
+
+// Audio processing to detect blowing and animate the candle flame
 navigator.mediaDevices.getUserMedia({ audio: true })
     .then(function(stream) {
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -26,8 +32,19 @@ navigator.mediaDevices.getUserMedia({ audio: true })
             }
             
             // Simple detection: if the amplitude is above a certain threshold, "blow out" the candle
-            if (maxAmplitude > 200) {
+            if (maxAmplitude > 250) {
                 document.getElementById('flame').style.display = 'none'; // Hide the flame
+            } else {
+                // Adjust threshold for flicker effect
+                if (maxAmplitude > 250) {
+                    const flame = document.getElementById('flame');
+                    flame.style.transform = 'scale(1.5)'; // Bigger flicker
+                    setTimeout(() => {
+                        flame.style.transform = 'scale(1)'; // Reset to normal
+                    }, 100);
+                }
+                // Ensure the flame is visible if it's not blown out
+                document.getElementById('flame').style.display = 'block';
             }
             
             requestAnimationFrame(detectBlow);
@@ -38,3 +55,4 @@ navigator.mediaDevices.getUserMedia({ audio: true })
     .catch(function(err) {
         console.error('Error accessing the microphone', err);
     });
+
