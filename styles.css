@@ -1,43 +1,107 @@
 styles.css
+/* General Body Styles */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f7f3e9;
+    background-color: #f0e0e0; /* Light background color */
     font-family: 'Comic Sans MS', sans-serif;
+    margin: 0;
 }
+
+/* Card Styles */
 .card {
     text-align: center;
-    background-color: #fff;
+    background-color: #C71585;
     border: 2px solid #dcdcdc;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-.cake {
     margin: 20px 0;
-    position: relative;
-    display: inline-block;
 }
+
+/* Cake Styles */
+.cake {
+    position: relative;
+    width: 200px; /* Adjust size as needed */
+    height: 200px; /* Adjust size as needed */
+    margin: 20px auto;
+}
+
+.cake-layer {
+    border-radius: 10px;
+    width: 100%;
+    position: absolute;
+    background-color: #8B0000; /* Deep red color */
+}
+
+.cake-bottom {
+    height: 60px;
+    bottom: 0;
+}
+
+.cake-middle {
+    height: 60px;
+    bottom: 60px;
+}
+
+.cake-top {
+    height: 60px;
+    bottom: 120px;
+    position: relative;
+}
+
+.cherry {
+    width: 20px;
+    height: 20px;
+    background-color: #B22222; /* Firebrick red for cherries */
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: 10px; /* Adjust positions for cherries */
+    transform: translateX(-50%);
+}
+
+.cherry:nth-child(2) {
+    left: 50%;
+}
+
+.cherry:nth-child(3) {
+    right: 10px;
+}
+
+.piping {
+    width: 100%;
+    height: 10px;
+    background-color: #FFD700; /* Gold color for piping */
+    position: absolute;
+    top: 120px;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Candle Styles */
 .candle {
     width: 20px;
-    height: 60px;
-    background-color: #e0c4ff;
+    height: 80px; /* Increased height */
+    background-color: #C71585; /* Medium red color */
     margin: 0 auto;
     position: relative;
 }
+
 .flame {
-    width: 10px;
-    height: 20px;
-    background-color: orange;
+    width: 14px; /* Slightly wider flame */
+    height: 40px; /* Increased height */
+    background-color: #FF6347; /* Tomato red for flame */
     border-radius: 50% 50% 0 0;
     position: absolute;
-    top: -20px;
-    left: 5px;
-    animation: flicker 0.2s infinite;
+    top: -40px;
+    left: 3px;
+    animation: flicker 0.5s infinite;
 }
+
+/* Flicker Animation */
 @keyframes flicker {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+    50% { transform: scale(1.3); } /* Increased scale for more noticeable flicker */
 }
